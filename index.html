@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rating</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form action="#">
+            <span class="title">Comment étais votre expérience</span>
+            <div class="star-box">
+                <input type="radio" name="rate" id="rate5" value="5">
+                <label for="rate5" class="fa fa-star"></label>
+
+                <input type="radio" name="rate" id="rate4" value="4">
+                <label for="rate4" class="fa fa-star"></label>
+
+                <input type="radio" name="rate" id="rate3" value="3">
+                <label for="rate3" class="fa fa-star"></label>
+
+                <input type="radio" name="rate" id="rate2" value="2">
+                <label for="rate2" class="fa fa-star"></label>
+
+                <input type="radio" name="rate" id="rate1" value="1">
+                <label for="rate1" class="fa fa-star"></label>
+            </div>
+            <span class="rate-text"></span>
+            <textarea name="" class="rate-describe" rows="2" placeholder="Décrivez votre expérience"></textarea>
+            <button class="post-btn">POSTER</button>
+        </form>
+    </div>
+
+    <script>
+        const rates = document.querySelectorAll('input[type="radio"][name="rate"]');
+        const rateText = document.querySelector('.rate-text');
+
+        rates.forEach((radio) => {
+            radio.addEventListener('change', () => {
+                if(radio.checked){
+                    if(radio.value == 1){
+                        rateText.innerText = 'Très insatisfait 😒';
+                    }else if (radio.value == 2){
+                        rateText.innerText = 'Insatisfait ☹️';
+                    }else if (radio.value == 3){
+                        rateText.innerText = 'Neutre 😑';
+                    }else if(radio.value == 4){
+                        rateText.innerText = 'Satisfait 😉';
+                    }else{
+                        rateText.innerText = 'Très satisfait 😍';
+                    }
+                }
+            });
+        })
+    </script>
+</body>
+</html>
